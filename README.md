@@ -5,6 +5,7 @@ Please send me your feedback to this email: siadatisaman@gmail.com
 
 
 ....................................................................
-Saz means proper or in ancient Persian(Parsig) (D. N. Mackenzie - A Concise Pahlavi Dictionary (School of Oriental & African Studies) (2002))
+
+Saz means proper or worthy in ancient Persian(Parsig) (D. N. Mackenzie - A Concise Pahlavi Dictionary (School of Oriental & African Studies) (2002))
 
 
