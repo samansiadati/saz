@@ -50,16 +50,30 @@ def tbl_cardin(dfrm):
     make_report(f_name, cardins)
     pass
 
+def remove_quotes(file_path, output_path):
 
-def remove_quotes(csv_file_path):
+    try:
+        # Read CSV as strings (object type)
+        df = pd.read_csv(file_path, dtype=str)
 
-    # Read CSV as strings (object type)
-    df = pd.read_csv(file_path, dtype=str)
+        # Remove quotes from column headers
+        df.columns = [col.replace('"', '').replace("'", '') for col in df.columns]
 
-    # Remove quotes from column headers
-    df.columns = [col.replace('"', '').replace("'", '') for col in df.columns]
+        # Remove quotes from all data values (only if dtype is object)
+        df = df.apply(lambda col: col.str.replace('"', '', regex=False).str.replace("'", '', regex=False)
+                      if col.dtype == "object" else col)
 
-    # Remove quotes from all data values
-    df = df.applymap(lambda x: x.replace('"', '').replace("'", '') if isinstance(x, str) else x)
+        # Save cleaned DataFrame to new CSV
+        df.to_csv(output_path, index=False)
 
-    return df
+        # Confirm the file was created
+        if os.path.exists(output_path):
+            print(f"✅ Cleaned CSV saved to: {output_path}")
+        else:
+            print(f"⚠️ CSV not saved. Check permissions or path: {output_path}")
+
+        return df
+
+    except Exception as e:
+        print(f"❌ Error: {e}")
+        return None
