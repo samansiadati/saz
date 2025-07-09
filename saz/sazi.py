@@ -50,6 +50,7 @@ def tbl_cardin(dfrm):
     make_report(f_name, cardins)
     pass
 
+
 def remove_quotes(file_path, output_path):
 
     try:
