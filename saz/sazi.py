@@ -49,3 +49,17 @@ def tbl_cardin(dfrm):
     f_name = updated_nm('cardinality', 'txt')
     make_report(f_name, cardins)
     pass
+
+
+def remove_quotes(csv_file_path):
+
+    # Read CSV as strings (object type)
+    df = pd.read_csv(file_path, dtype=str)
+
+    # Remove quotes from column headers
+    df.columns = [col.replace('"', '').replace("'", '') for col in df.columns]
+
+    # Remove quotes from all data values
+    df = df.applymap(lambda x: x.replace('"', '').replace("'", '') if isinstance(x, str) else x)
+
+    return df
