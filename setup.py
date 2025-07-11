@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="saz",
-    version="0.0.10",  # 🔁 MUST BUMP VERSION for PyPI upload
+    version="0.0.11",  # 🔁 MUST BUMP VERSION for PyPI upload
     packages=["saz"],
     license="MIT",
     description="Tools for CSV cleaning and reporting",
